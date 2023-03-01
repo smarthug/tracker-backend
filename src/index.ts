@@ -1,9 +1,7 @@
 import { Hono } from 'hono'
 import { poweredBy } from 'hono/powered-by'
 
-import requestIp from 'request-ip'
 
-console.log(requestIp)
 
 const app = new Hono()
 
@@ -35,11 +33,6 @@ app.get('/', (c) => {
   );
 })
 
-app.get('/ip', (c) => {
-  console.log('ip')
-  const ip = requestIp.getClientIp(c.req)
-  console.log(ip)
-  return c.json({ ip })
-})
+
 
 export default app
